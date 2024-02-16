@@ -27,6 +27,8 @@ export default function App() {
 }
 
 function Tabbed({ content }) {
+  //all the tabs will be sharing same state
+  //change is this state will affect all the tabs
   const [activeTab, setActiveTab] = useState(0);
 
   return (
