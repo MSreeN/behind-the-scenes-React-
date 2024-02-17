@@ -41,6 +41,8 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
+        //If we don't add key prop then TabContent component wont get regenerated even if showDetails state is changed it is because even if the state changes, react will compare previous fiber tree with the new react element tree and the type is TabContent in both the trees so it doesn't change or reevaluate the component, so wee need something that says react that the TabContent has been changed so it key attribute
+        //Now when key changes react thinks that react thinks that new component has been generated and it replaces the old comp with new one and state in that new comp will take affect.
         <TabContent key={activeTab} item={content.at(activeTab)} />
       ) : (
         <DifferentContent />
